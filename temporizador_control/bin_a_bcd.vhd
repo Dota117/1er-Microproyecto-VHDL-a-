@@ -10,7 +10,7 @@ entity bin_a_bcd is
         centenas  : out STD_LOGIC_VECTOR(3 downto 0)
     );
 end bin_a_bcd;
-
+--This segment in the file was created with the help of artificial intelligence tools 
 architecture Behavioral of bin_a_bcd is
 begin
     process(valor_bin)

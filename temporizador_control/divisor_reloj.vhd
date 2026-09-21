@@ -18,5 +18,10 @@ begin
     process (clk_in,  rst)
     if rst '1' then
         conteo <= 0
+        estado_clk <=  0;
+    elsif rising.edge(clk_in) then
+        if conteo = (mitad_ciclos -1) then
+            conteo <=0;
+            
 
                 

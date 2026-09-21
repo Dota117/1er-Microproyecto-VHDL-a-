@@ -22,6 +22,15 @@ begin
     elsif rising.edge(clk_in) then
         if conteo = (mitad_ciclos -1) then
             conteo <=0;
+            estado_clk <= not estado_clk;
+        else
+            conteo <= conteo + 1;
+        end if;
+    end if;
+ end process;
+
+ clk_1hz <= estado_clk;
+end arch1;
             
 
                 

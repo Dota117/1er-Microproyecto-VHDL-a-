@@ -3,6 +3,18 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 package pkg_temporizador is
+
+    constant TIEMPO_LIMITE : integer := 35;
+
+    type estado_sistema_t is (ESPERA, CONTEO, ALARMA, FELICITACION);
+
+    component divisor_reloj is
+        Port ( 
+            clk_in  : in  STD_LOGIC;
+            rst     : in  STD_LOGIC;
+            clk_1hz : out STD_LOGIC
+        );
+    end component;
   
     component contador_segundos is
         Port (

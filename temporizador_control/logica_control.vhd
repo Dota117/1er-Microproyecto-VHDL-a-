@@ -33,3 +33,19 @@ begin
     
     led_alarma   <= limite_alcanzado and sensor_pres;
 
+    process(clk, rst)
+    begin
+        if rst = '1' then
+            memoria_felicita <= '0';
+        elsif rising_edge(clk) then
+            if sensor_pres = '0' and limite_alcanzado = '0' then
+                if tiempo_base > 0 then
+                    memoria_felicita <= '1'; 
+                end if;
+            end if;
+        end if;
+    end process;
+
+    led_felicit <= memoria_felicita;
+
+end arch_ctrl;

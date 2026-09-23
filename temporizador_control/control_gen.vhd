@@ -29,7 +29,21 @@ begin
             estado_actual <= estado_siguiente;
         end if;
     end process;
+    process(estado_actual, sensor_pres, tiempo_base)
+    begin
+        estado_siguiente <= estado_actual; 
+        ena_timer_b      <= '0';
+        ena_timer_ex     <= '0';
+        rst_timers       <= '0';
+        led_alarma       <= '0';
+        led_felicit      <= '0';
 
+        case estado_actual is
+            when ESPERA =>
+                rst_timers <= '1';
+                if sensor_pres = '1' then
+                    estado_siguiente <= CONTEO;
+                end if;
             
 
 

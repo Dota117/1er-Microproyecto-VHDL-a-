@@ -4,7 +4,14 @@ use IEEE.NUMERIC_STD.ALL;
 
 package pkg_temporizador is
   
-    constant CICLOS : integer := 50_000_000;
+    component contador_segundos is
+        Port (
+            clk_1hz : in  STD_LOGIC;
+            rst     : in  STD_LOGIC;
+            ena     : in  STD_LOGIC;
+            tiempo  : out integer range 0 to 255
+        );
+    end component;
 
     component divisor_reloj is
         Port ( 

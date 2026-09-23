@@ -21,6 +21,16 @@ architecture arch_3 of control_gen is
     signal estado_actual, estado_siguiente : estado_sistema_t;
 begin
 
+    process(clk, rst)
+    begin
+        if rst = '1' then
+            estado_actual <= ESPERA;
+        elsif rising_edge(clk) then
+            estado_actual <= estado_siguiente;
+        end if;
+    end process;
+
+            
 
 
 

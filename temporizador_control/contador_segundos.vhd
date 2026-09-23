@@ -25,4 +25,5 @@ begin
             end if;
         end if;
     end process;
+    tiempo <= control_interno;
 end end arch2;

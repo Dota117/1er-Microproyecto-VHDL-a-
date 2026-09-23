@@ -25,5 +25,6 @@ begin
             end if;
         end if;
     end process;
-    tiempo <= control_interno;
+            
+    tiempo <= conteo_interno;
 end end arch2;

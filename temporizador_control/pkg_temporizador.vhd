@@ -6,22 +6,6 @@ package pkg_temporizador is
 
     constant TIEMPO_LIMITE : integer := 35;
 
-    type estado_sistema_t is (ESPERA, CONTEO, ALARMA, FELICITACION);
-
-    component control_gen is
-        Port (
-            clk          : in  STD_LOGIC;
-            rst          : in  STD_LOGIC;
-            sensor_pres  : in  STD_LOGIC;
-            tiempo_base  : in  integer range 0 to 255; 
-            ena_timer_b  : out STD_LOGIC;
-            ena_timer_ex : out STD_LOGIC;
-            rst_timers   : out STD_LOGIC;
-            led_alarma   : out STD_LOGIC;
-            led_felicit  : out STD_LOGIC
-        );
-    end component;
-  
     component contador_segundos is
         Port (
             clk_1hz : in  STD_LOGIC;

@@ -4,7 +4,19 @@ use IEEE.NUMERIC_STD.ALL;
 
 package pkg_temporizador is
 
-    constant TIEMPO_LIMITE : integer := 35;
+component logica_control is
+        Port (
+            clk          : in  STD_LOGIC; 
+            rst          : in  STD_LOGIC; 
+            sensor_pres  : in  STD_LOGIC; 
+            tiempo_base  : in  integer range 0 to 255; 
+            ena_timer_b  : out STD_LOGIC; 
+            ena_timer_ex : out STD_LOGIC; 
+            rst_timers   : out STD_LOGIC; 
+            led_alarma   : out STD_LOGIC; 
+            led_felicit  : out STD_LOGIC
+        );
+    end component;
 
     component contador_segundos is
         Port (
@@ -37,3 +49,5 @@ package pkg_temporizador is
             seg_out: out STD_LOGIC_VECTOR(6 downto 0)
         );
     end component;
+package body pkg_temporizador is
+end package body pkg_temporizador;

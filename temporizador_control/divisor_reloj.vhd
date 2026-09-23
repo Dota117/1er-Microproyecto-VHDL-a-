@@ -1,6 +1,5 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
- 
 
 entity divisor_reloj is
     Port ( 
@@ -10,9 +9,8 @@ entity divisor_reloj is
     );
 end divisor_reloj;
 
-architecture arch1 of divisor_reloj is
-    constant mitad_ciclos : integer := 25000000;
-    signal conteo : integer range 0 to Mitad_ciclos := 0;
+architecture arch_1 of divisor_reloj is
+    signal conteo : integer range 0 to 25_000_000 := 0;
     signal estado_clk : STD_LOGIC := '0';
 begin
     process(clk_in, rst)
@@ -21,7 +19,6 @@ begin
             conteo <= 0;
             estado_clk <= '0';
         elsif rising_edge(clk_in) then
-         
             if conteo = 24_999_999 then
                 conteo <= 0;
                 estado_clk <= not estado_clk;
@@ -32,6 +29,5 @@ begin
     end process;
 
     clk_1hz <= estado_clk;
-end arch1;
-
-                
+end arch__1;
+             

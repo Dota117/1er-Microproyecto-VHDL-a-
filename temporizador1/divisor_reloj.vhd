@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity divisor_reloj is
+    Port ( 
+        clk_in  : in  STD_LOGIC;
+        rst     : in  STD_LOGIC;
+        clk_1hz : out STD_LOGIC
+    );
+end divisor_reloj;
+
+architecture arch_1 of divisor_reloj is
+    signal conteo : integer range 0 to 25_000_000 := 0;
+    signal estado_clk : STD_LOGIC := '0';
+begin
+    process(clk_in, rst)
+    begin
+        if rst = '1' then
+            conteo <= 0;
+            estado_clk <= '0';
+        elsif rising_edge(clk_in) then
+            if conteo = 24_999_999 then
+                conteo <= 0;
+                estado_clk <= not estado_clk;
+            else
+                conteo <= conteo + 1;
+            end if;
+        end if;
+    end process;
+
+    clk_1hz <= estado_clk;
+end arch_1;
+             

@@ -20,3 +20,20 @@ architecture arch1 of contador_segundos1 is
     signal count_dseg : unsigned(3 downto 0) := (others => '0');
     signal count_useg : unsigned(3 downto 0) := (others => '0');
 begin
+
+
+    process(clk_1hz, rst)
+    begin
+        if rst = '1' then
+            ena_run <= '0';
+        elsif rising_edge(clk_1hz) then
+            if start = '1' then
+                ena_run <= '1';
+            elsif stop = '1' then
+                ena_run <= '0';
+            end if;
+        end if;
+    end process;
+
+    process(clk_1hz, rst)
+    process(clk_1hz, rst)

@@ -21,7 +21,6 @@ architecture arch1 of contador_segundos1 is
     signal count_useg : unsigned(3 downto 0) := (others => '0');
 begin
 
-
     process(clk_1hz, rst)
     begin
         if rst = '1' then
@@ -34,9 +33,19 @@ begin
             end if;
         end if;
     end process;
+
     process(clk_1hz, rst)
     begin
         if rst = '1' then
             count_min  <= (others => '0');
             count_dseg <= (others => '0');
             count_useg <= (others => '0');
+        elsif rising_edge(clk_1hz) then
+            if ena_run = '1' then
+                if count_useg = 9 then
+                    count_useg <= (others => '0');
+                    if count_dseg = 5 then
+                        count_dseg <= (others => '0');
+                        if count_min = 9 then
+                            count_min <= (others => '0');
+                        

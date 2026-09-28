@@ -1,5 +1,5 @@
 library IEEE;
-use IEEE.STD.LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity contador_segundos is
     Port (
@@ -27,4 +27,4 @@ begin
     end process;
             
     tiempo <= conteo_interno;
-end end arch2;
+end arch2;

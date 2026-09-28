@@ -49,5 +49,7 @@ component logica_control is
             seg_out: out STD_LOGIC_VECTOR(6 downto 0)
         );
     end component;
+	 
+end package pkg_temporizador;
 package body pkg_temporizador is
 end package body pkg_temporizador;

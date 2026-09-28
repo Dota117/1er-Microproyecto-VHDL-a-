@@ -34,6 +34,9 @@ begin
             end if;
         end if;
     end process;
-
     process(clk_1hz, rst)
-    process(clk_1hz, rst)
+    begin
+        if rst = '1' then
+            count_min  <= (others => '0');
+            count_dseg <= (others => '0');
+            count_useg <= (others => '0');

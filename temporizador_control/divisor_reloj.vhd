@@ -29,5 +29,5 @@ begin
     end process;
 
     clk_1hz <= estado_clk;
-end arch__1;
+end arch_1;
              

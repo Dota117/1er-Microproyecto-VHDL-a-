@@ -48,4 +48,21 @@ begin
                         count_dseg <= (others => '0');
                         if count_min = 9 then
                             count_min <= (others => '0');
-                        
+                        else
+                            count_min <= count_min + 1;
+                        end if;
+                    else
+                        count_dseg <= count_dseg + 1;
+                    end if;
+                else
+                    count_useg <= count_useg + 1;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    bcd_min  <= std_logic_vector(count_min);
+    bcd_dseg <= std_logic_vector(count_dseg);
+    bcd_useg <= std_logic_vector(count_useg);
+
+end arch1;
